@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: marine_dss_db
+    restart: always
+    environment:
+      POSTGRES_DB: marine_dss
+      POSTGRES_USER: marine_user
+      POSTGRES_PASSWORD: marine_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - marine_dss_pgdata:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  adminer:
+    image: adminer:4
+    container_name: marine_dss_adminer
+    restart: always
+    ports:
+      - "8080:8080"
+
+volumes:
+  marine_dss_pgdata:

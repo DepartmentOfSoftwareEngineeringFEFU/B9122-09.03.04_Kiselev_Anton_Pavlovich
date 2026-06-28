@@ -1,0 +1,683 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #f3f6fb;
+  color: #111827;
+}
+
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 11px 14px;
+  background: #f1f5f9;
+  color: #111827;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid #dbe3ef;
+  border-radius: 12px;
+  padding: 10px;
+  background: #ffffff;
+  color: #111827;
+  font: inherit;
+}
+
+textarea {
+  min-height: 230px;
+  resize: vertical;
+  font-family: Consolas, monospace;
+  font-size: 13px;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.topbar {
+  background: #0f172a;
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.topbar p {
+  margin: 5px 0 0;
+  color: #cbd5e1;
+  font-size: 13px;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.topbar-actions span {
+  background: #1e293b;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 220px 1fr 330px;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.sidebar,
+.risk-panel,
+.map-card,
+.route-card,
+.reports-card,
+.info-card {
+  background: #ffffff;
+  border: 1px solid #dce5f2;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+.sidebar {
+  padding: 18px;
+  height: fit-content;
+  position: sticky;
+  top: 16px;
+}
+
+.sidebar h2,
+.risk-panel h2,
+.map-card h2,
+.route-card h2,
+.reports-card h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.sidebar h3,
+.risk-panel h3 {
+  margin: 22px 0 10px;
+  font-size: 14px;
+}
+
+.nav-button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin-top: 8px;
+  color: #64748b;
+}
+
+.nav-button.active {
+  background: #e8f0ff;
+  color: #2563eb;
+}
+
+.side-section {
+  margin-top: 20px;
+  display: grid;
+  gap: 8px;
+}
+
+.primary-dark {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.primary-dark:hover {
+  background: #1e293b;
+}
+
+.primary-blue {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.primary-blue:hover {
+  background: #1d4ed8;
+}
+
+.main {
+  display: grid;
+  gap: 16px;
+}
+
+.map-card,
+.route-card,
+.reports-card {
+  padding: 18px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.card-header p {
+  margin: 5px 0 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.legend {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 10px;
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-box {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.legend-box.high {
+  background: #ef4444;
+}
+
+.legend-box.medium {
+  background: #f59e0b;
+}
+
+.legend-box.low {
+  background: #22c55e;
+}
+
+.map-wrapper {
+  height: 520px;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid #dbe3ef;
+}
+
+.leaflet-map {
+  width: 100%;
+  height: 100%;
+}
+
+.route-presets {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.route-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.info-card {
+  padding: 18px;
+}
+
+.info-card h3 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: #334155;
+}
+
+.info-card strong {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.info-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.reports-list {
+  display: grid;
+  gap: 10px;
+}
+
+.report-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.report-item p {
+  margin: 5px 0 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.muted {
+  color: #64748b;
+}
+
+.risk-panel {
+  padding: 18px;
+  position: sticky;
+  top: 16px;
+  height: fit-content;
+}
+
+.risk-badge {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.risk-badge.high {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.risk-badge.medium {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.risk-badge.low {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.risk-score {
+  margin-top: 16px;
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.risk-score span {
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.risk-score.high span {
+  color: #ef4444;
+}
+
+.risk-score.medium span {
+  color: #f59e0b;
+}
+
+.risk-score.low span {
+  color: #22c55e;
+}
+
+.risk-score small {
+  font-size: 16px;
+  color: #64748b;
+}
+
+.progress {
+  height: 12px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+  margin: 10px 0 22px;
+}
+
+.progress div {
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #f59e0b, #ef4444);
+  border-radius: 999px;
+}
+
+.factor {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.factor span {
+  color: #64748b;
+}
+
+.recommendations {
+  padding-left: 18px;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.risk-panel button {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.statusbar {
+  margin-top: 16px;
+  background: #ffffff;
+  border: 1px solid #dce5f2;
+  border-radius: 14px;
+  padding: 12px 16px;
+  color: #475569;
+  font-size: 13px;
+}
+
+@media (max-width: 1200px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .risk-panel {
+    position: static;
+  }
+
+  .cards-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.layer-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 9px 10px;
+  font-size: 13px;
+  color: #334155;
+  cursor: pointer;
+}
+
+.layer-toggle input {
+  width: auto;
+}
+
+.layer-box,
+.layer-dot,
+.layer-line {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.layer-box {
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+.layer-box.risk {
+  background: linear-gradient(90deg, #22c55e, #f59e0b, #ef4444);
+}
+
+.layer-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+}
+
+.layer-dot.heatmap {
+  background: #7c3aed;
+  opacity: 0.65;
+}
+
+.layer-line {
+  width: 22px;
+  height: 0;
+  border-top: 3px solid;
+}
+
+.layer-line.trajectory {
+  border-color: #64748b;
+  border-top-style: dashed;
+}
+
+.layer-line.route {
+  border-color: #2563eb;
+}
+
+.layer-line.segment {
+  border-color: #ef4444;
+}
+
+.legend-line {
+  width: 22px;
+  height: 0;
+  border-top: 3px solid;
+  display: inline-block;
+}
+
+.legend-line.route {
+  border-color: #2563eb;
+}
+
+.legend-line.trajectory {
+  border-color: #64748b;
+  border-top-style: dashed;
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.legend-dot.heatmap {
+  background: #7c3aed;
+  opacity: 0.65;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at top left, rgba(37, 99, 235, 0.18), transparent 35%),
+    linear-gradient(135deg, #0f172a, #1e293b);
+  padding: 24px;
+}
+
+.login-card {
+  width: min(460px, 100%);
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 24px 80px rgba(15, 23, 42, 0.35);
+}
+
+.login-header {
+  background: #0f172a;
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.login-header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.login-header p {
+  margin: 8px 0 0;
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.login-form {
+  display: grid;
+  gap: 14px;
+}
+
+.login-form h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.login-form label {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.login-error {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.login-presets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.login-status {
+  margin-top: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 12px;
+  color: #475569;
+  font-size: 13px;
+}
+
+.role-chip {
+  font-weight: 800;
+}
+
+.role-chip.admin {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.role-chip.researcher {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.risk-score span {
+  font-size: 36px;
+  font-weight: 900;
+}
+
+.risk-score.high span {
+  color: #ef4444;
+}
+
+.risk-score.medium span {
+  color: #f59e0b;
+}
+
+.risk-score.low span {
+  color: #22c55e;
+}
+
+/* Финальные правки интерфейса по ролям */
+.workspace.admin-workspace {
+  grid-template-columns: 260px minmax(0, 1fr);
+}
+
+.workspace.researcher-workspace {
+  grid-template-columns: 260px minmax(0, 1fr) 330px;
+}
+
+.role-hint {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.role-hint h3 {
+  margin-top: 0;
+}
+
+.role-hint p {
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.nav-button {
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: #f8fafc;
+  border: 1px solid transparent;
+  font-weight: 700;
+}
+
+.nav-button.active {
+  border-color: #bfdbfe;
+}
+
+.admin-summary-row {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1200px) {
+  .workspace.admin-workspace,
+  .workspace.researcher-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-summary-row {
+    grid-template-columns: 1fr;
+  }
+}
