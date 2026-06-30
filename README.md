@@ -487,6 +487,42 @@ git commit -m "Update project"
 git push
 ```
 
+## Скриншоты
 
-<img width="1919" height="897" alt="image" src="https://github.com/user-attachments/assets/edb7ea12-e500-4f71-9b3f-082c7e456003" />
+### Swagger API
+
+<img width="1904" height="991" alt="image" src="https://github.com/user-attachments/assets/7db9aa22-881a-482c-b2e3-01c127876a13" />
+
+### База данных Adminer
+
+<img width="1919" height="994" alt="image" src="https://github.com/user-attachments/assets/12d82e0e-166c-4046-993e-dfd44f5d51cb" />
+
+### Интерфейс системы
+
+1. Авторизация
+
+<img width="1919" height="992" alt="image" src="https://github.com/user-attachments/assets/63f7d916-0d1f-4209-add5-d84e9b043639" />
+
+2. Экран Администратора
+
+<img width="1904" height="990" alt="image" src="https://github.com/user-attachments/assets/3efd069a-4435-4813-a221-2fdff68e3dc8" />
+
+3. Экран Исследователя
+
+<img width="1902" height="993" alt="image" src="https://github.com/user-attachments/assets/e5756668-8a0b-432a-b97d-ffd9716d244d" />
+
+<img width="1919" height="992" alt="image" src="https://github.com/user-attachments/assets/06249674-4f16-47e0-8cda-2644b5439124" />
+
+<img width="1919" height="994" alt="image" src="https://github.com/user-attachments/assets/68c2d976-974b-4c7e-ad81-7b1c44804e67" />
+
+4. Отчётность 
+
+<img width="1919" height="575" alt="image" src="https://github.com/user-attachments/assets/acf1a1cf-7386-44ff-aebd-2d5412e03c4e" />
+
+
+
+
+
+
+
 
