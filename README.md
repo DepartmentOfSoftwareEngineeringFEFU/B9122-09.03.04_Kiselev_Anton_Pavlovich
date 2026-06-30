@@ -486,3 +486,7 @@ git add .
 git commit -m "Update project"
 git push
 ```
+
+
+<img width="1919" height="897" alt="image" src="https://github.com/user-attachments/assets/edb7ea12-e500-4f71-9b3f-082c7e456003" />
+
