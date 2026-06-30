@@ -35,7 +35,7 @@ git clone https://github.com/DepartmentOfSoftwareEngineeringFEFU/B9122-09.03.04_
 Перейти в папку проекта:
 
 ```bash
-cd B9122-09.03.04_Kiselev_Anton
+cd B9122-09.03.04_Kiselev_Anton_Pavlovich
 ```
 
 Если проект скачан ZIP-архивом, нужно просто распаковать архив и открыть папку проекта в терминале.
